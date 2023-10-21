@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private float horizontalInput;
     private float forwardInput;
+    public string inputID;
 
     void Update()
     {
@@ -24,8 +25,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
+        forwardInput = Input.GetAxis("Vertical" + inputID);
 
         // move the vehicle
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
