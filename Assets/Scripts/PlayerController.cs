@@ -6,9 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private float turnSpeed;
+    [SerializeField] Camera mainCamera;
+    [SerializeField] Camera secondaryCamera;
+    [SerializeField] KeyCode switchKey;
 
     private float horizontalInput;
     private float forwardInput;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(switchKey))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            secondaryCamera.enabled = !secondaryCamera.enabled;
+        }
+    }
 
     void FixedUpdate()
     {
